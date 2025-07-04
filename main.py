@@ -3,6 +3,8 @@ from pydantic import BaseModel
 import random
 from fastapi.middleware.cors import CORSMiddleware
 
+app = FastAPI()
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000"],  # Your local frontend origin
@@ -10,8 +12,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-app = FastAPI()
 
 class UserRequest(BaseModel):
     session_id: str
